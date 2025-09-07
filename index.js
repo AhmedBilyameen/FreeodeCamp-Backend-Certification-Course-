@@ -40,7 +40,7 @@ app.get("/api/:date?", (req, res) => {
     date = parseInt(date) // convert string to number
   }
 
-  const parsedDate = new Date()
+  const parsedDate = new Date(date)
 
 
   //handle invalid date
@@ -52,8 +52,8 @@ app.get("/api/:date?", (req, res) => {
 
   //return json
   res.json({
-    inix : parsedDate.getTime(),
-    utc : parsedDate.getUTCString()
+    unix : parsedDate.getTime(),
+    utc : parsedDate.toUTCString()
   })
 })
 
